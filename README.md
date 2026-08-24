@@ -1,6 +1,6 @@
 <div align="center">
 
-<b>Русский</b> | <a href="README.en.md">English</a>
+<b>Русский</b> | <a href="README.en.md">English</a> | <a href="README.zh-TW.md">繁體中文</a>
 
 # 🚀 nzapret by nikitos4683
 

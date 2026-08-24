@@ -1,7 +1,7 @@
 const DEFAULT_LOCALE = 'ru';
 const FALLBACK_LOCALE = 'en';
 const LOCALE_STORAGE_KEY = 'nzapret.webui.locale';
-const SUPPORTED_LOCALES = ['ru', 'en'];
+const SUPPORTED_LOCALES = ['ru', 'en', 'zh-TW'];
 
 const translations = {
     ru: {
@@ -482,6 +482,243 @@ const translations = {
             }
         }
     }
+,
+    'zh-TW': {
+        aria: {
+            sections: '區塊',
+            language: '介面語言'
+        },
+        nav: {
+            runtime: '狀態',
+            tools: '設定',
+            logs: '日誌'
+        },
+        common: {
+            save: '儲存',
+            save_restart: '儲存並重新啟動',
+            reload: '重新載入',
+            add: '新增',
+            clear: '清除',
+            end: '到底部',
+            live: '即時',
+            loading: '載入中...',
+            applying_changes: '套用變更中...',
+            unknown: '未知',
+            remove_domain: '移除網域'
+        },
+        status: {
+            checking: '檢查中...',
+            active: '執行中',
+            inactive: '已停止',
+            multi_pid: '多個 PID',
+            error: '狀態錯誤',
+            refresh_failed: '狀態重新整理失敗',
+            on: '開啟',
+            off: '關閉',
+            tg_port: '通訊埠 {{port}}',
+            tg_port_cf: '通訊埠 {{port}} (CF)',
+            labels: {
+                private_dns: '私人 DNS',
+                telegram: 'Telegram',
+                domains: '網域',
+                google_domains: 'Google 網域',
+                personal_domains: '個人網域',
+                ipv4_rules: 'IPv4 規則',
+                ipv6_rules: 'IPv6 規則'
+            }
+        },
+        actions: {
+            start: '啟動',
+            stop: '停止',
+            restart: '重新啟動',
+            update: '更新',
+            starting: '正在啟動 nzapret...',
+            stopping: '正在停止 nzapret...',
+            restarting: '正在重新啟動 nzapret...',
+            updating_data: '正在更新資料...',
+            completed: '{{command}} 完成'
+        },
+        user_list: {
+            title: '個人網域清單',
+            subtitle: '新增或移除網域，然後點擊「儲存」。點擊「重新載入」可從裝置還原已儲存的清單。nfqws2 會自動套用變更而無需重新啟動。',
+            empty: '目前沒有個人網域。在下方新增網域以將其加入至作用中的主機清單。',
+            quick_placeholder: '新增一個網域，然後點擊「新增」',
+            dirty_none: '沒有未儲存的變更。',
+            dirty_unsaved: '有未儲存的變更。請按下「儲存」以套用。',
+            binding_applied: '已由目前的設定套用。',
+            binding_missing: '目前的設定尚未參照 list-user.txt。',
+            binding_unknown: '設定狀態無法取得。',
+            load_failed: '無法載入個人清單',
+            reloaded: '已重新載入個人清單',
+            comments_not_added: '註解不會在這裡加入',
+            already_exists: '網域已存在於清單中',
+            saving: '正在儲存個人網域...',
+            clearing: '正在清除個人網域...',
+            saved: '個人清單已儲存',
+            cleared: '個人清單已清除'
+        },
+        tg: {
+            title: 'Telegram',
+            subtitle: '用來繞過 Telegram 封鎖的本地 MTProto 代理伺服器。點擊下方的按鈕連接您的用戶端。',
+            open: '在 Telegram 中開啟',
+            copy_link: '複製連結',
+            regen: '產生新金鑰 (Secret)',
+            mtproto_title: 'MTProto 連線',
+            host: 'IP 位址',
+            port: '通訊埠',
+            secret: '金鑰 (Secret)',
+            dc_title: 'Telegram 資料中心 (DC → IP)',
+            dc_hint: '每行一條規則，格式為: 編號:IP',
+            dc_tooltip: '將 Telegram 資料中心編號 (DC) 對應至伺服器 IP。每行為「編號:IP」，例如 4:149.154.167.220。代理伺服器將根據這些規則將流量路由至正確的 Telegram 伺服器。\n\n如果 CF 代理伺服器運作正常但無法載入媒體，請嘗試移除 2:149.154.167.220 這行。',
+            cf_title: 'Cloudflare 代理伺服器',
+            cf_enable: '啟用 CF 代理伺服器',
+            cf_custom: '自訂網域',
+            cf_custom_placeholder: 'example.com',
+            cf_test: '測試 CF 代理伺服器',
+            cf_testing: '正在測試 CF 代理伺服器...',
+            cf_test_ok: 'CF 代理伺服器運作正常 ({{domain}})',
+            cf_test_fail: 'CF 代理伺服器無法使用：{{error}}',
+            preresolve_enable: '預先解析 DC 路由',
+            preresolve_tooltip: '在啟動時（以及每 30 分鐘）測試到每個資料中心的直接路徑，以避免第一次連線等待逾時。如果直接路徑被封鎖，將會立即選擇備用路由 (CF/TCP)。',
+            dirty_none: '沒有未儲存的變更。',
+            dirty_pending: '有未儲存的變更。請按下「儲存」。',
+            saving: '正在儲存 Telegram 設定...',
+            saving_restart: '儲存並重新啟動...',
+            saved: 'Telegram 設定已儲存',
+            saved_restart: '設定已儲存，服務已重新啟動',
+            regenerating: '正在產生新金鑰 (Secret)...',
+            secret_regenerated: '新金鑰已產生',
+            opening: '正在開啟 Telegram...',
+            opened: '正在開啟 Telegram',
+            copied: '已複製連結',
+            copy_failed: '無法複製連結',
+            invalid_host: '請輸入有效的 IP 位址',
+            invalid_port: '通訊埠必須為 1 到 65535 之間的數字',
+            invalid_dc: '無效的 DC 規則：{{line}}',
+            invalid_domain: '無效的網域'
+        },
+        private_dns: {
+            title: '私人 DNS',
+            subtitle_html: '管理 Android 系統的私人 DNS。除非裝置已經使用了其他的 DNS 供應商，否則 nzapret 會在服務首次啟動時套用 <code>{{default_hostname}}</code>。',
+            off_label: '關閉',
+            off_meta: '停用 Android 系統解析器的私人 DNS。',
+            auto_label: '自動',
+            auto_meta: '允許 Android 在目前網路支援時使用加密 DNS。',
+            default_meta: '立即套用 nzapret 預設的提供者主機名稱。',
+            hostname_placeholder: 'dns.example.com',
+            apply_hostname: '套用主機名稱',
+            status_initial: '私人 DNS 狀態將在第一次重新整理後顯示於此處。',
+            status_unavailable: '目前版本的 Android 設定命令不存在，無法控制私人 DNS。',
+            status_init_pending: '除非已經設定了其他的供應商主機名稱，否則 nzapret 會在服務首次啟動時套用 {{default_hostname}}。',
+            status_off: '已停用 Android 系統解析器的私人 DNS。',
+            status_default_active: '{{hostname}} 是目前的 nzapret 預設提供者。變更會立即套用。',
+            status_custom_active: '自訂的提供者 {{hostname}} 正在使用中。變更會立即套用。',
+            status_custom_unspecified: '自訂的提供者主機名稱正在使用中。變更會立即套用。',
+            status_auto: '自動模式，允許 Android 在目前網路支援時使用加密 DNS。變更會立即套用。',
+            updated: '私人 DNS 已更新',
+            invalid_hostname: '請輸入有效的供應商主機名稱',
+            loading_disable: '正在停用私人 DNS...',
+            loading_auto: '正在將私人 DNS 切換為自動模式...',
+            loading_default: '正在套用 {{hostname}}...',
+            loading_hostname: '正在套用私人 DNS 主機名稱...',
+            mode_off: '關閉',
+            mode_auto: '自動',
+            mode_provider: '供應商主機名稱',
+            unavailable_short: '無法使用'
+        },
+        diagnostics: {
+            title: '診斷',
+            subtitle: '在查看原始日誌之前，先檢查目前的執行狀態。',
+            run: '執行診斷',
+            running: '正在執行診斷...',
+            overlay_running: '正在執行診斷...',
+            failed: '診斷失敗',
+            completed: '診斷完成',
+            error: '診斷錯誤：{{message}}',
+            empty_title: '目前尚無診斷快照',
+            empty_text: '執行健康檢查以確認程序、防火牆鏈以及其他即時訊號，然後再查看原始輸出。',
+            summary: '{{passed}} 個通過 · {{failed}} 個失敗 / 共 {{total}} 個',
+            summary_passed: '{{ok}} 個通過',
+            summary_failed: '{{fail}} 個失敗',
+            expanded: '已展開詳細清單',
+            collapsed: '已隱藏詳細清單',
+            show_details: '顯示詳細資訊 ({{count}})',
+            hide_details: '隱藏詳細資訊',
+            names: {
+                process: '{{subject}} 程序',
+                userlist_binding: 'list-user 綁定',
+                ip_stack: 'IP 堆疊',
+                private_dns: '私人 DNS',
+                routing_ipv4: 'IPv4 路由',
+                routing_ipv6: 'IPv6 路由'
+            },
+            details: {
+                command_available: '命令可使用',
+                command_missing: '命令遺失',
+                ip6tables_available: '命令可使用',
+                ip6tables_unusable: '存在但無法使用',
+                ip6tables_missing_fallback: '遺失，僅支援 IPv4 防火牆',
+                runtime_file_present: '檔案存在',
+                runtime_file_missing: '檔案遺失',
+                process_running: '執行中 (pid: {{pid}})',
+                process_not_running: '未執行',
+                userlist_attached: '目前的設定已包含 list-user.txt',
+                userlist_detached: '目前的設定未參照 list-user.txt',
+                stack_ipv4_only: '僅 IPv4',
+                stack_dual: 'IPv4 + IPv6',
+                private_dns_unavailable: '設定命令遺失',
+                private_dns_off: '關閉',
+                private_dns_auto: '自動',
+                private_dns_hostname_default: '供應商主機名稱 ({{hostname}})',
+                private_dns_hostname_custom: '供應商主機名稱 ({{hostname}})',
+                private_dns_hostname_unspecified: '供應商主機名稱',
+                jump_present: '跳轉規則 (jump) 存在',
+                jump_missing: '跳轉規則 (jump) 遺失',
+                jump_skipped_no_ipv6: '已略過 (僅支援 IPv4 防火牆)',
+                routing_ok: '路由查詢運作正常',
+                routing_fail: '路由查詢失敗',
+                routing_unavailable: '此網路上無法使用'
+            }
+        },
+        logs: {
+            title: '日誌',
+            runtime_meta: 'nfqws2 stdout / stderr',
+            nztg_meta: 'nztg (Telegram) stdout / stderr',
+            runtime_tab: 'nfqws2',
+            nztg_tab: 'nztg',
+            events_tab: '事件',
+            loading_runtime: '正在載入執行日誌...',
+            runtime_empty: '執行日誌為空。',
+            events_empty: '目前尚無事件紀錄。',
+            event_history: '事件歷史紀錄',
+            clear_events: '清除事件',
+            clearing_events: '正在清除事件歷史紀錄...',
+            cleared_events: '事件歷史紀錄已清除',
+            clear_failed: '清除失敗：{{message}}'
+        },
+        generic: {
+            error_with_message: '錯誤：{{message}}'
+        },
+        counts: {
+            domains: {
+                one: '{{count}} 個網域',
+                other: '{{count}} 個網域'
+            },
+            events: {
+                one: '{{count}} 個事件',
+                other: '{{count}} 個事件'
+            },
+            lines: {
+                one: '{{count}} 行',
+                other: '{{count}} 行'
+            },
+            entries: {
+                one: '{{count}} 筆項目',
+                other: '{{count}} 筆項目'
+            }
+        }
+    }
+
 };
 
 let currentLocale = DEFAULT_LOCALE;
